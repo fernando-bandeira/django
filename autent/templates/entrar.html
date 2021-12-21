@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Entrar{% endblock %}
+{% block content %}
+{% if messages %}
+  {% for message in messages %}
+    {{ message }}
+  {% endfor %}
+{% endif %}
+<h2>Entrar:</h2>
+<form method="post">
+  {% csrf_token %}
+  <label for="user">Nome de usuário:</label>
+  <br>
+  <input type="text" name="user" id="user">
+  <br>
+  <br>
+  <label for="senha">Senha:</label>
+  <br>
+  <input type="password" name="senha" id="senha">
+  <br>
+  <br>
+  <input type="submit" value="Entrar">
+</form>
+{% endblock %}

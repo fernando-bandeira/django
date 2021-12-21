@@ -1,0 +1,30 @@
+nav ul li {
+  display: inline;
+  margin-left: 25px;
+}
+
+nav ul {
+  text-align: right;
+}
+
+h1 a {
+  text-decoration: none;
+  color: initial;
+}
+
+section {
+  border-top: 1px solid #CCC;
+}
+
+#coment-area {
+  margin-top: 100px;
+  border-top: 1px solid #CCC;
+}
+
+.comentario {
+  margin-top: 40px;
+}
+
+.comentario p {
+  margin-left: 25px;
+}

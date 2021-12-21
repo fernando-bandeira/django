@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+
+<body>
+  <nav>
+    <ul>
+      {% if user.is_authenticated %}
+      {% if user.is_superuser %}
+      <li class="autent"><a href="{% url 'criar_artigo' %}">Criar artigo</a></li>
+      {% endif %}
+      <li class="autent"><a href="{% url 'sair' %}">Sair</a></li>
+      {% else %}
+      <li class="autent"><a href="{% url 'entrar' %}">Entrar</a></li>
+      <li class="autent"><a href="{% url 'cadastro' %}">Cadastro</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  <h1><a href="\">Site</a></h1>
+  <section>
+    {% block content %}{% endblock %}
+  </section>
+</body>
+
+</html>

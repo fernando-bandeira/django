@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Novo artigo{% endblock %}
+{% block content %}
+<h2>Novo artigo:</h2>
+<form method="post">
+  {% csrf_token %}
+  <input type="hidden" name="autor" value="{{ user.id }}">
+  <label for="titulo">Título:</label>
+  <br>
+  <input type="text" name="titulo" id="titulo">
+  <br>
+  <br>
+  <label for="conteudo">Conteúdo:</label>
+  <br>
+  <textarea name="conteudo" id="conteudo"></textarea>
+  <br>
+  <br>
+  <input type="submit" value="Criar">
+</form>
+{% endblock %}

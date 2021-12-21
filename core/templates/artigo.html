@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<article>
+  <h2>{{ artigo.titulo }}</h2>
+  <h4>Por {{ artigo.autor.first_name }}</h4>
+  {{ artigo.conteudo }}
+</article>
+<aside id="coment-area">
+  <h3>Comentários:</h3>
+  {% if user.is_authenticated %}
+  <div id="comentar">
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="autor" value="{{ user.id }}">
+      <label for="coment">Comentar:</label>
+      <br>
+      <textarea name="coment" id="coment"></textarea>
+      <br>
+      <br>
+      <input type="submit" value="Comentar">
+    </form>
+  </div>
+  {% endif %}
+  <div id="comentarios">
+    {% for coment in comentarios %}
+    <div class="comentario">
+      Por {{ coment.autor.first_name }}:
+      <p>{{ coment.conteudo }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</aside>
+{% endblock %}
